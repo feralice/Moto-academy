@@ -11,3 +11,5 @@ export class League implements ILeague {
     this.name = name;
   }
 }
+
+export type NewLeague = Omit<ILeague, 'id'>;

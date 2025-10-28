@@ -1,0 +1,26 @@
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: league_mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+      MYSQL_DATABASE: ${DB_NAME}
+    ports:
+      - '3306:3306'
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  app:
+    image: node:22
+    container_name: league_node
+    working_dir: /app
+    volumes:
+      - .:/app
+    env_file:
+      - .env
+    command: sh -c "envsubst < config/config.template.json > config/config.json && npm install && npx sequelize-cli db:migrate"
+    depends_on:
+      - mysql
+
+volumes:
+  mysql_data:

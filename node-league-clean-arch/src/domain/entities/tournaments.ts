@@ -20,3 +20,5 @@ export class Tournament implements ITournament {
     this.numRounds = numRounds;
   }
 }
+
+export type NewTournament = Omit<ITournament, 'id'>;

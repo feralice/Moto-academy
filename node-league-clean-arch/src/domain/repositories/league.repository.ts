@@ -1,7 +1,7 @@
-import { ILeague } from '../entities/league';
+import { ILeague, NewLeague } from '../entities/league';
 
 export interface ILeagueRepository {
-  create(data: ILeague): Promise<ILeague>;
+  create(data: NewLeague): Promise<ILeague>;
   findAll(): Promise<ILeague[]>;
   findById(id: string): Promise<ILeague>;
   update(id: string, data: Partial<ILeague>): Promise<ILeague>;

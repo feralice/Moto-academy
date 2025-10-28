@@ -14,3 +14,5 @@ export class Player implements IPlayer {
     this.email = email;
   }
 }
+
+export type NewPlayer = Omit<IPlayer, 'id'>;

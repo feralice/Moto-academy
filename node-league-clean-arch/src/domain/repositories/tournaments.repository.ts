@@ -1,7 +1,7 @@
-import { ITournament } from '../entities/tournaments';
+import { ITournament, NewTournament } from '../entities/tournaments';
 
 export interface ITournamentRepository {
-  create(data: ITournament): Promise<ITournament>;
+  create(data: NewTournament): Promise<ITournament>;
   update(id: string, data: Partial<ITournament>): Promise<ITournament>;
   delete(id: string): Promise<void>;
   findAll(): Promise<ITournament[]>;

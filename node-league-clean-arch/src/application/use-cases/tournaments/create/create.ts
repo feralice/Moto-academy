@@ -1,4 +1,3 @@
-import { v4 } from 'uuid';
 import { ITournament } from '../../../../domain/entities/tournaments';
 import { ITournamentRepository } from '../../../../domain/repositories/tournaments.repository';
 import { ICreateTournamentUseCase } from '../../../../domain/use-cases/tournaments';
@@ -13,7 +12,6 @@ export class CreateTournamentUseCase implements ICreateTournamentUseCase {
     numRounds: number;
   }): Promise<ITournament> {
     const tournament = await this.tournamentRepository.create({
-      id: v4(),
       leagueId: data.leagueId,
       name: data.name,
       date: data.date,
