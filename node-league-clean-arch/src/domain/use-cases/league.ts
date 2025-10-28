@@ -8,10 +8,6 @@ export interface IGetAllLeaguesUseCase {
   getAllLeagues(): Promise<ILeague[]>;
 }
 
-export interface IGetLeagueByIdUseCase {
-  getLeagueById(id: string): Promise<ILeague>;
-}
-
 export interface IUpdateLeagueUseCase {
   updateLeague(id: string, data: Partial<ILeague>): Promise<ILeague>;
 }

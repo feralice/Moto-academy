@@ -8,10 +8,6 @@ export interface IGetAllTournamentsUseCase {
   getAllTournaments(): Promise<ITournament[]>;
 }
 
-export interface IGetTournamentByIdUseCase {
-  getTournamentById(id: string): Promise<ITournament>;
-}
-
 export interface IUpdateTournamentUseCase {
   updateTournament(id: string, data: Partial<ITournament>): Promise<ITournament>;
 }

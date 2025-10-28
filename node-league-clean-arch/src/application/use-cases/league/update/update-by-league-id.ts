@@ -6,6 +6,10 @@ export class UpdateByLeagueIdUseCase implements IUpdateLeagueUseCase {
   constructor(private leagueRepository: ILeagueRepository) {}
 
   async updateLeague(id: string, data: Partial<ILeague>): Promise<ILeague> {
+    const verifyIfLeagueExists = await this.leagueRepository.findById(id);
+    if (!verifyIfLeagueExists) {
+      throw new Error('League not found');
+    }
     const league = await this.leagueRepository.update(id, data);
     return league;
   }

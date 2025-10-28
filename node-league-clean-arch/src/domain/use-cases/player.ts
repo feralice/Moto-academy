@@ -1,15 +1,11 @@
-import { IPlayer } from "../entities/player";
+import { IPlayer } from '../entities/player';
 
 export interface ICreatePlayerUseCase {
-  createPlayer(name: string, email: string): Promise<IPlayer>;
+  createPlayer({ name, email }: { name: string; email: string }): Promise<IPlayer>;
 }
 
 export interface IGetAllPlayersUseCase {
   getAllPlayers(): Promise<IPlayer[]>;
-}
-
-export interface IGetPlayerByIdUseCase {
-  getPlayerById(id: string): Promise<IPlayer>;
 }
 
 export interface IUpdatePlayerUseCase {

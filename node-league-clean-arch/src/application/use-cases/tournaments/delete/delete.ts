@@ -1,9 +1,10 @@
 import { ITournamentRepository } from '../../../../domain/repositories/tournaments.repository';
+import { IDeleteTournamentUseCase } from '../../../../domain/use-cases/tournaments';
 
-export class DeleteTournamentUseCase {
+export class DeleteTournamentUseCase implements IDeleteTournamentUseCase {
   constructor(private tournamentRepository: ITournamentRepository) {}
 
-  async execute(id: string): Promise<void> {
+  async deleteTournament(id: string): Promise<void> {
     await this.tournamentRepository.delete(id);
   }
 }

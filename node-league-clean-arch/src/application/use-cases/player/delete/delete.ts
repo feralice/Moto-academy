@@ -1,9 +1,10 @@
 import { IPlayerRepository } from '../../../../domain/repositories/player.repository';
+import { IDeletePlayerUseCase } from '../../../../domain/use-cases/player';
 
-export class DeletePlayerUseCase {
+export class DeletePlayerUseCase implements IDeletePlayerUseCase {
   constructor(private playerRepository: IPlayerRepository) {}
 
-  async execute(id: string): Promise<void> {
+  async deletePlayer(id: string): Promise<void> {
     await this.playerRepository.delete(id);
   }
 }
