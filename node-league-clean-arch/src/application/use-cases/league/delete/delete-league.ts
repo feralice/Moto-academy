@@ -1,9 +1,10 @@
 import { ILeagueRepository } from '../../../../domain/repositories/league.repository';
+import { IDeleteLeagueUseCase } from '../../../../domain/use-cases/league';
 
-export class DeleteLeagueUseCase {
+export class DeleteLeagueUseCase implements IDeleteLeagueUseCase {
   constructor(private leagueRepository: ILeagueRepository) {}
 
-  async execute(id: string): Promise<void> {
+  async deleteLeague(id: string): Promise<void> {
     await this.leagueRepository.delete(id);
   }
 }

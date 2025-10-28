@@ -6,6 +6,5 @@ export interface ITournamentRepository {
   delete(id: string): Promise<void>;
   findAll(): Promise<ITournament[]>;
   findById(id: string): Promise<ITournament>;
-  addPlayerToTournament(tournamentId: string, playerId: string, points: number): Promise<void>;
+  addPlayerToTournament(tournamentId: string, playerId: string, points?: number): Promise<void>;
 }
-

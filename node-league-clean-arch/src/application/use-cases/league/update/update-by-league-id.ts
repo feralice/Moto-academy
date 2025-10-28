@@ -1,10 +1,11 @@
 import { ILeague } from '../../../../domain/entities/league';
 import { ILeagueRepository } from '../../../../domain/repositories/league.repository';
+import { IUpdateLeagueUseCase } from '../../../../domain/use-cases/league';
 
-export class UpdateByLeagueIdUseCase {
+export class UpdateByLeagueIdUseCase implements IUpdateLeagueUseCase {
   constructor(private leagueRepository: ILeagueRepository) {}
 
-  async execute(id: string, data: Partial<ILeague>): Promise<ILeague> {
+  async updateLeague(id: string, data: Partial<ILeague>): Promise<ILeague> {
     const league = await this.leagueRepository.update(id, data);
     return league;
   }
