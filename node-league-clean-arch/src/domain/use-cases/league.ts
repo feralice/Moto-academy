@@ -9,7 +9,7 @@ export interface IGetAllLeaguesUseCase {
 }
 
 export interface IUpdateLeagueUseCase {
-  updateLeague(id: string, data: Partial<ILeague>): Promise<ILeague>;
+  updateLeague(id: string, data: Partial<ILeague>): Promise<ILeague | null>;
 }
 
 export interface IDeleteLeagueUseCase {

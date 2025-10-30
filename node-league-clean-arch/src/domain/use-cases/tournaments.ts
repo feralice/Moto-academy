@@ -9,7 +9,7 @@ export interface IGetAllTournamentsUseCase {
 }
 
 export interface IUpdateTournamentUseCase {
-  updateTournament(id: string, data: Partial<ITournament>): Promise<ITournament>;
+  updateTournament(id: string, data: Partial<ITournament>): Promise<ITournament | null>;
 }
 
 export interface IDeleteTournamentUseCase {

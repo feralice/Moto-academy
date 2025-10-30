@@ -1,18 +1,18 @@
 export interface ITournament {
   id: string;
-  leagueId: number;
+  leagueId: string;
   name: string;
-  date: string;
+  date: Date;
   numRounds: number;
 }
 
 export class Tournament implements ITournament {
   id: string;
-  leagueId: number;
+  leagueId: string;
   name: string;
-  date: string;
+  date: Date;
   numRounds: number;
-  constructor(id: string, leagueId: number, name: string, date: string, numRounds: number) {
+  constructor(id: string, leagueId: string, name: string, date: Date, numRounds: number) {
     this.id = id;
     this.leagueId = leagueId;
     this.name = name;

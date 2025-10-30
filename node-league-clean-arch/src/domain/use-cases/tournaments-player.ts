@@ -1,7 +1,7 @@
 export interface IGetPlayersWithPointsByLeagueUseCase {
   getPlayersWithPointsByLeague(leagueId: string): Promise<
     Array<{
-      playerId: string;
+      id: string;
       name: string;
       email: string;
       totalPoints: number;

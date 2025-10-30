@@ -1,9 +1,7 @@
-import { ITournamentPlayer } from '../entities/tournament-player';
-
 export interface ITournamentPlayerRepository {
   getPlayersWithPointsByLeague(leagueId: string): Promise<
     Array<{
-      playerId: string;
+      id: string;
       name: string;
       email: string;
       totalPoints: number;

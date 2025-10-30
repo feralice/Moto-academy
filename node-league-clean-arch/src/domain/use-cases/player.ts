@@ -9,7 +9,7 @@ export interface IGetAllPlayersUseCase {
 }
 
 export interface IUpdatePlayerUseCase {
-  updatePlayer(id: string, data: Partial<IPlayer>): Promise<IPlayer>;
+  updatePlayer(id: string, data: Partial<IPlayer>): Promise<IPlayer | null>;
 }
 
 export interface IDeletePlayerUseCase {

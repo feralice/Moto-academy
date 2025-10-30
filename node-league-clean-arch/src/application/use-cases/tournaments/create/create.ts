@@ -6,9 +6,9 @@ export class CreateTournamentUseCase implements ICreateTournamentUseCase {
   constructor(private tournamentRepository: ITournamentRepository) {}
 
   async createTournament(data: {
-    leagueId: number;
+    leagueId: string;
     name: string;
-    date: string;
+    date: Date;
     numRounds: number;
   }): Promise<ITournament> {
     const tournament = await this.tournamentRepository.create({
