@@ -38,4 +38,3 @@ export class LeagueModel extends Model<LeagueAttributes, LeagueCreationAttribute
     );
   }
 }
-

@@ -23,7 +23,7 @@ export class TournamentPlayerController {
 
       return res.status(200).json(players);
     } catch (error: any) {
-      return res.status(400).json({ error: error.message });
+      return res.status(500).json({ error: error.message });
     }
   }
 }

@@ -1,7 +1,6 @@
 import { DataTypes, Model, Sequelize, Optional } from 'sequelize';
-import { LeagueModel } from './league';
 
-export interface TournamentAttributes {
+interface TournamentAttributes {
   id: string;
   leagueId: string;
   name: string;
@@ -11,7 +10,7 @@ export interface TournamentAttributes {
   updatedAt?: Date;
 }
 
-export interface TournamentCreationAttributes extends Optional<TournamentAttributes, 'id'> {}
+interface TournamentCreationAttributes extends Optional<TournamentAttributes, 'id'> {}
 
 export class TournamentModel
   extends Model<TournamentAttributes, TournamentCreationAttributes>
@@ -50,10 +49,4 @@ export class TournamentModel
       }
     );
   }
-
-  static associate(): void {
-    TournamentModel.belongsTo(LeagueModel, { foreignKey: 'leagueId', as: 'league' });
-  }
 }
-
-export default TournamentModel;

@@ -1,13 +1,13 @@
 // src/interfaces/http/routes/tournament.routes.ts
 import { Router } from 'express';
 import { TournamentController } from '../controllers/tournament.controller';
-import { validateRequest } from '../../middleware/request-validator';
+import { validateRequest } from '../middleware/request-validator';
 import {
   createTournamentValidator,
   updateTournamentValidator,
   deleteTournamentValidator,
   addPlayerToTournamentValidator,
-} from '../../middleware/validators/tournaments';
+} from '../middleware/validators/tournaments';
 
 const tournamentRouter = Router();
 

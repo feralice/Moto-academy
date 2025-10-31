@@ -4,6 +4,7 @@ import { LeagueModel } from '../models/league';
 
 export class SequelizeLeagueRepository implements ILeagueRepository {
   async create(data: NewLeague): Promise<ILeague> {
+    console.log('SequelizeLeagueRepository: Creating league with data:', data);
     const record = await LeagueModel.create(data);
     return new League(record.id, record.name);
   }

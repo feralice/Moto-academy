@@ -1,0 +1,119 @@
+### 🌍 BASE VARIABLES
+@baseUrl = http://localhost:3000/api
+@leagueId = 
+@playerId = 
+@tournamentId = 
+
+###############################################################
+# 🏁 HEALTH CHECK
+###############################################################
+GET http://localhost:3000/
+Accept: application/json
+
+
+###############################################################
+# 🏆 LEAGUES
+###############################################################
+
+### CREATE LEAGUE
+POST {{baseUrl}}/leagues
+Content-Type: application/json
+
+{
+  "name": "Premier LeagueEE"
+}
+
+### GET ALL LEAGUES
+GET {{baseUrl}}/leagues
+Accept: application/json
+
+### UPDATE LEAGUE
+PUT {{baseUrl}}/leagues/{{leagueId}}
+Content-Type: application/json
+
+{
+  "name": "Updated League Name"
+}
+
+### DELETE LEAGUE
+DELETE {{baseUrl}}/leagues/{{leagueId}}
+
+
+###############################################################
+# 👟 PLAYERS
+###############################################################
+
+### CREATE PLAYER
+POST {{baseUrl}}/players
+Content-Type: application/json
+
+{
+  "name": "Fernanda Alice",
+  "email": "fernanda.alice@example.com"
+}
+
+### GET ALL PLAYERS
+GET {{baseUrl}}/players
+Accept: application/json
+
+### UPDATE PLAYER
+PUT {{baseUrl}}/players/{{playerId}}
+Content-Type: application/json
+
+{
+  "name": "Fernanda A. Duarte",
+  "email": "feralice@example.com"
+}
+
+### DELETE PLAYER
+DELETE {{baseUrl}}/players/{{playerId}}
+
+
+###############################################################
+# 🏟️ TOURNAMENTS
+###############################################################
+
+### CREATE TOURNAMENT
+POST {{baseUrl}}/tournaments
+Content-Type: application/json
+
+{
+  "leagueId": "{{leagueId}}",
+  "name": "Champions Cup",
+  "date": "2025-12-01",
+  "numRounds": 5
+}
+
+### GET ALL TOURNAMENTS
+GET {{baseUrl}}/tournaments
+Accept: application/json
+
+### UPDATE TOURNAMENT
+PUT {{baseUrl}}/tournaments/{{tournamentId}}
+Content-Type: application/json
+
+{
+  "name": "Updated Tournament Name",
+  "numRounds": 7
+}
+
+### DELETE TOURNAMENT
+DELETE {{baseUrl}}/tournaments/{{tournamentId}}
+
+### ADD PLAYER TO TOURNAMENT
+POST {{baseUrl}}/tournaments/{{tournamentId}}/players
+Content-Type: application/json
+
+{
+  "playerId": "{{playerId}}",
+  "points": 10
+}
+
+
+###############################################################
+# 🧾 TOURNAMENT PLAYERS / REPORTS
+###############################################################
+
+### GET PLAYERS WITH POINTS BY LEAGUE
+GET {{baseUrl}}/tournament-players/{{leagueId}}/players-with-points
+Accept: application/json

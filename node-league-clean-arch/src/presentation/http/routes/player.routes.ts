@@ -1,11 +1,11 @@
 import { Router } from 'express';
 import { PlayerController } from '../controllers/player.controller';
-import { validateRequest } from '../../middleware/request-validator';
+import { validateRequest } from '../middleware/request-validator';
 import {
   createPlayerValidator,
   updatePlayerValidator,
   deletePlayerValidator,
-} from '../../middleware/validators/player.validator';
+} from '../middleware/validators/player.validator';
 
 const playerRouter = Router();
 

@@ -1,6 +1,6 @@
 import { DataTypes, Model, Sequelize, Optional } from 'sequelize';
 
-export interface PlayerAttributes {
+interface PlayerAttributes {
   id: string;
   name: string;
   email: string;
@@ -8,7 +8,7 @@ export interface PlayerAttributes {
   updatedAt?: Date;
 }
 
-export interface PlayerCreationAttributes extends Optional<PlayerAttributes, 'id'> {}
+interface PlayerCreationAttributes extends Optional<PlayerAttributes, 'id'> {}
 
 export class PlayerModel extends Model<PlayerAttributes, PlayerCreationAttributes> implements PlayerAttributes {
   declare id: string;
@@ -37,5 +37,3 @@ export class PlayerModel extends Model<PlayerAttributes, PlayerCreationAttribute
     );
   }
 }
-
-export default PlayerModel;

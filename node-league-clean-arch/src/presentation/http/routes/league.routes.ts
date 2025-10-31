@@ -1,11 +1,7 @@
 import { Router } from 'express';
 import { LeagueController } from '../controllers/league.controller';
-import { validateRequest } from '../../middleware/request-validator';
-import {
-  createLeagueValidator,
-  updateLeagueValidator,
-  deleteLeagueValidator,
-} from '../../middleware/validators/league';
+import { validateRequest } from '../middleware/request-validator';
+import { createLeagueValidator, updateLeagueValidator, deleteLeagueValidator } from '../middleware/validators/league';
 
 const leagueRouter = Router();
 

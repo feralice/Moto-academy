@@ -14,10 +14,15 @@ const deleteLeagueUseCase = new DeleteLeagueUseCase(leagueRepository);
 export class LeagueController {
   static async create(req: Request, res: Response) {
     try {
-      const league = await createLeagueUseCase.createLeague(req.body.name);
+      console.log('Request Body:', req.body);
+      const name = req.body.name;
+      if (!name) {
+        return res.status(400).json({ error: 'League name is required' });
+      }
+      const league = await createLeagueUseCase.createLeague(name);
       return res.status(201).json(league);
     } catch (error: any) {
-      return res.status(400).json({ error: error.message });
+      return res.status(500).json({ error: error.message });
     }
   }
 
@@ -36,7 +41,7 @@ export class LeagueController {
       if (!updated) return res.status(404).json({ error: 'League not found' });
       return res.status(200).json(updated);
     } catch (error: any) {
-      return res.status(400).json({ error: error.message });
+      return res.status(500).json({ error: error.message });
     }
   }
 

@@ -17,7 +17,7 @@ export class PlayerController {
       const player = await createPlayerUseCase.createPlayer({ name: req.body.name, email: req.body.email });
       return res.status(201).json(player);
     } catch (error: any) {
-      return res.status(400).json({ error: error.message });
+      return res.status(500).json({ error: error.message });
     }
   }
 
@@ -36,7 +36,7 @@ export class PlayerController {
 
       return res.status(200).json(updated);
     } catch (error: any) {
-      return res.status(400).json({ error: error.message });
+      return res.status(500).json({ error: error.message });
     }
   }
 

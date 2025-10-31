@@ -6,6 +6,7 @@ export class CreateLeagueUseCase implements ICreateLeagueUseCase {
   constructor(private leagueRepository: ILeagueRepository) {}
 
   async createLeague(name: string): Promise<League> {
+    console.log('Creating league with name:', name);
     const league = await this.leagueRepository.create({ name });
     return league;
   }

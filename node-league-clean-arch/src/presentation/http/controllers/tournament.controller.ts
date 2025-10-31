@@ -23,7 +23,7 @@ export class TournamentController {
       const tournament = await createTournamentUseCase.createTournament({ leagueId, name, date, numRounds });
       return res.status(201).json(tournament);
     } catch (error: any) {
-      return res.status(400).json({ error: error.message });
+      return res.status(500).json({ error: error.message });
     }
   }
 
@@ -42,7 +42,7 @@ export class TournamentController {
       if (!updated) return res.status(404).json({ error: 'Tournament not found' });
       return res.status(200).json(updated);
     } catch (error: any) {
-      return res.status(400).json({ error: error.message });
+      return res.status(500).json({ error: error.message });
     }
   }
 
@@ -55,7 +55,7 @@ export class TournamentController {
       await deleteTournamentUseCase.deleteTournament(id);
       return res.status(204).send();
     } catch (error: any) {
-      return res.status(400).json({ error: error.message });
+      return res.status(500).json({ error: error.message });
     }
   }
 
@@ -69,7 +69,7 @@ export class TournamentController {
       await addPlayerToTournamentUseCase.addPlayerToTournament(tournamentId, playerId, points ?? 0);
       return res.status(201).json({ message: 'Player added to tournament successfully' });
     } catch (error: any) {
-      return res.status(400).json({ error: error.message });
+      return res.status(500).json({ error: error.message });
     }
   }
 }
